@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-navy: #012435;
+  --color-navy-light: #0a3d5c;
+  --color-brown: #7c572d;
+  --color-brown-light: #a8784e;
+  --color-cream: #F9F9F7;
+  --color-warm: #FDF8F3;
+  --color-dark-bg: #0a1628;
+  --color-cosmos: #0c0e1a;
+  --color-text: #42474c;
+  --color-text-light: #6b7280;
+
+  --font-serif: var(--font-noto-serif-kr), Georgia, serif;
+  --font-sans: var(--font-noto-sans-kr), -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: #ffffff;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scroll fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Grayscale hover effect for images */
+.img-grayscale {
+  filter: grayscale(100%);
+  transition: filter 0.5s ease;
+}
+
+.img-grayscale:hover {
+  filter: grayscale(0%);
+}
