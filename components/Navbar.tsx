@@ -11,6 +11,7 @@ const links = [
   { href: "/cosmos", label: "우주 이야기" },
   { href: "/values", label: "가치관" },
   { href: "/gallery", label: "갤러리" },
+  { href: "/repair", label: "🔧 수리 서비스", isRepair: true },
 ];
 
 export default function Navbar() {
@@ -44,19 +45,32 @@ export default function Navbar() {
         <ul className="hidden md:flex gap-8">
           {links.map((link) => (
             <li key={link.href}>
-              <Link
-                href={link.href}
-                className={`text-sm transition-colors relative pb-1 ${
-                  pathname === link.href
-                    ? "text-navy font-medium"
-                    : "text-text-light hover:text-navy"
-                }`}
-              >
-                {link.label}
-                {pathname === link.href && (
-                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-brown rounded" />
-                )}
-              </Link>
+              {(link as { isRepair?: boolean }).isRepair ? (
+                <Link
+                  href={link.href}
+                  className={`text-sm font-medium transition-colors px-3 py-1.5 rounded-full ${
+                    pathname === link.href
+                      ? "bg-amber text-white"
+                      : "bg-amber/10 text-amber hover:bg-amber/20"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <Link
+                  href={link.href}
+                  className={`text-sm transition-colors relative pb-1 ${
+                    pathname === link.href
+                      ? "text-navy font-medium"
+                      : "text-text-light hover:text-navy"
+                  }`}
+                >
+                  {link.label}
+                  {pathname === link.href && (
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-brown rounded" />
+                  )}
+                </Link>
+              )}
             </li>
           ))}
         </ul>
@@ -82,7 +96,11 @@ export default function Navbar() {
               href={link.href}
               onClick={() => setOpen(false)}
               className={`block py-2 text-sm ${
-                pathname === link.href
+                (link as { isRepair?: boolean }).isRepair
+                  ? pathname === link.href
+                    ? "text-amber font-medium"
+                    : "text-amber"
+                  : pathname === link.href
                   ? "text-navy font-medium"
                   : "text-text-light"
               }`}

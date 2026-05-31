@@ -24,11 +24,16 @@ export default function Footer() {
                 { href: "/about", label: "소개" },
                 { href: "/telecom", label: "통신의 역사" },
                 { href: "/gallery", label: "갤러리" },
+                { href: "/repair", label: "🔧 수리 서비스", isRepair: true },
               ].map((l) => (
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="text-sm text-white/40 hover:text-white/80 transition-colors"
+                    className={`text-sm transition-colors ${
+                      (l as { isRepair?: boolean }).isRepair
+                        ? "text-amber-light/70 hover:text-amber-light"
+                        : "text-white/40 hover:text-white/80"
+                    }`}
                   >
                     {l.label}
                   </Link>

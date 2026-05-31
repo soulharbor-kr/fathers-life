@@ -9,6 +9,10 @@ const timeline = [
   { year: "1980–90s", title: "세계와 연결되다", desc: "국내 통신을 넘어 국제전화의 시대를 열었습니다. 일하면서 대전산업대학교에 진학하여 학업과 실무를 병행하며 끊임없이 성장했습니다." },
   { year: "1990–2000s", title: "손안의 전화기 시대를 맞이하다", desc: "가장 처음 핸드폰을 들고 다니던 세대. 편지에서 시작된 통신이 손안의 작은 기기로 완성되는 것을 직접 목격하고 만들어낸 당사자입니다." },
   { year: "2006", title: "34년의 여정을 마무리하다", desc: "KT에서 명예로운 퇴직. 자석식 교환기부터 모바일 통신까지, 대한민국 통신의 전 역사를 현장에서 함께한 34년이었습니다." },
+  { year: "2006 ~ 2011", title: "요양병원에서, 사람 곁의 기술자로", desc: "KT 퇴직 후 요양병원 시설 담당으로 새 출발. 배관이 새고, 전구가 나가고, 자동문이 멈추면 — 달려가서 고쳐드렸습니다. \"누군가 불편한 게 있으면 그냥 그냥 못 지나쳐.\"" },
+  { year: "2011 ~ 2016", title: "은행동 스카이로드, 도심 한복판을 관리하다", desc: "상업 시설 관리소장으로서 도심 스카이로드의 가로등, 자동문, 안전설비를 총괄했습니다. \"고장나기 전에 미리 보는 눈\" — 20년이 넘는 경력이 만들어준 감각입니다." },
+  { year: "2016 ~ 2020", title: "마루미 아파트, 이웃의 불편을 해결하다", desc: "아파트 전기·시설과장으로 주민들의 크고 작은 문제를 직접 고쳐드렸습니다. 콘센트 하나, 변기 하나, 조명 하나. \"고쳐드리면 얼굴이 환해지는 걸 보는 게 좋았어요.\"" },
+  { year: "2020 ~ 현재", title: "지금 이곳에서도, 여전히 이웃을 위해", desc: "현재 거주 아파트 전기·시설과장으로 재직 중. 누전 탐지, 예초 작업, 가로등 수리, 화장실 개보수까지. \"필요한 사람이 있으면 달려가는\" 삶을 이어가고 있습니다." },
 ];
 
 export default function AboutPage() {
@@ -37,17 +41,27 @@ export default function AboutPage() {
             {/* Line */}
             <div className="absolute left-[7px] md:left-[9px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-brown to-brown/10" />
 
-            {timeline.map((item) => (
-              <FadeIn key={item.year}>
-                <div className="relative mb-12 pl-8 md:pl-10">
-                  {/* Dot */}
-                  <div className="absolute -left-[33px] md:-left-[35px] top-2 w-3 h-3 rounded-full bg-brown border-[3px] border-white shadow-[0_0_0_3px_rgba(124,87,45,0.15)]" />
-                  <p className="font-serif text-sm font-bold text-brown tracking-wide mb-2">{item.year}</p>
-                  <h3 className="font-serif text-xl text-navy mb-2">{item.title}</h3>
-                  <p className="text-sm text-text-light leading-relaxed max-w-xl">{item.desc}</p>
-                </div>
-              </FadeIn>
-            ))}
+            {timeline.map((item) => {
+              const isPost2006 = item.year.startsWith("20") && item.year !== "2006";
+              return (
+                <FadeIn key={item.year}>
+                  <div className="relative mb-12 pl-8 md:pl-10">
+                    <div
+                      className={`absolute -left-[33px] md:-left-[35px] top-2 w-3 h-3 rounded-full border-[3px] border-white ${
+                        isPost2006
+                          ? "bg-amber shadow-[0_0_0_3px_rgba(217,119,6,0.15)]"
+                          : "bg-brown shadow-[0_0_0_3px_rgba(124,87,45,0.15)]"
+                      }`}
+                    />
+                    <p className={`font-serif text-sm font-bold tracking-wide mb-2 ${isPost2006 ? "text-amber" : "text-brown"}`}>
+                      {item.year}
+                    </p>
+                    <h3 className="font-serif text-xl text-navy mb-2">{item.title}</h3>
+                    <p className="text-sm text-text-light leading-relaxed max-w-xl">{item.desc}</p>
+                  </div>
+                </FadeIn>
+              );
+            })}
           </div>
         </div>
       </section>

@@ -24,6 +24,14 @@ const highlights = [
     title: "75세, 새로운 우주가 열리다",
     desc: "손자의 질문에서 시작된 우주 공부 여정",
   },
+  {
+    href: "/repair",
+    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&q=80",
+    label: "수리 서비스",
+    title: "고쳐드릴게요. 오래 해봤거든요.",
+    desc: "KT 이후 20년, 전기·시설·수리의 현장을 지켜온 또 하나의 이야기",
+    isRepair: true,
+  },
 ];
 
 export default function Home() {
@@ -111,17 +119,31 @@ export default function Home() {
           <FadeIn>
             <h2 className="font-serif text-2xl md:text-4xl font-bold text-navy leading-snug mb-12">삶의 이야기들</h2>
           </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {highlights.map((h) => (
               <FadeIn key={h.href}>
                 <Link href={h.href} className="group block">
                   <div className="relative h-56 rounded-2xl overflow-hidden mb-4">
                     <Image src={h.image} alt={h.title} fill className="object-cover img-grayscale group-hover:scale-105 transition-transform duration-500" />
                     <div className="absolute top-4 left-4">
-                      <span className="text-xs font-medium bg-brown/80 text-white px-3 py-1 rounded-full backdrop-blur-sm">{h.label}</span>
+                      <span
+                        className={`text-xs font-medium text-white px-3 py-1 rounded-full backdrop-blur-sm ${
+                          (h as { isRepair?: boolean }).isRepair ? "bg-amber/90" : "bg-brown/80"
+                        }`}
+                      >
+                        {h.label}
+                      </span>
                     </div>
                   </div>
-                  <h3 className="font-serif text-lg text-navy group-hover:text-brown transition-colors mb-1">{h.title}</h3>
+                  <h3
+                    className={`font-serif text-lg text-navy mb-1 ${
+                      (h as { isRepair?: boolean }).isRepair
+                        ? "group-hover:text-amber transition-colors"
+                        : "group-hover:text-brown transition-colors"
+                    }`}
+                  >
+                    {h.title}
+                  </h3>
                   <p className="text-sm text-text-light">{h.desc}</p>
                 </Link>
               </FadeIn>

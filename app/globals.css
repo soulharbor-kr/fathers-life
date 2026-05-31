@@ -11,6 +11,9 @@
   --color-cosmos: #0c0e1a;
   --color-text: #42474c;
   --color-text-light: #6b7280;
+  --color-amber: #d97706;
+  --color-amber-light: #fbbf24;
+  --color-amber-bg: #fffbeb;
 
   --font-serif: var(--font-noto-serif-kr), Georgia, serif;
   --font-sans: var(--font-noto-sans-kr), -apple-system, BlinkMacSystemFont, sans-serif;
