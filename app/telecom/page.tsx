@@ -14,7 +14,7 @@ const eras = [
     icon: "dialpad",
     title: "자동식 교환기",
     desc: "다이얼을 돌리면 자동으로 연결되는 혁명. 이 전환의 첫 세대 기술자로서 전국망을 구축했습니다.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=500&q=80",
+    image: "https://images.unsplash.com/photo-1563884705074-7c8b15f16295?w=500&q=80",
   },
   {
     gen: "3세대",
@@ -38,7 +38,7 @@ export default function TelecomPage() {
       {/* Hero */}
       <section className="relative min-h-[50vh] flex items-center overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1600&q=80"
+          src="https://images.unsplash.com/photo-1563884705074-7c8b15f16295?w=1600&q=80"
           alt=""
           fill
           className="object-cover"

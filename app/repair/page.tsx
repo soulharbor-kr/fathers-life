@@ -114,7 +114,7 @@ export default function RepairPage() {
       {/* ── 섹션 1: 히어로 ── */}
       <header className="relative min-h-[90vh] flex items-center justify-center text-center overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1600&q=80"
+          src="https://images.unsplash.com/photo-1626501244050-ad05a356bb27?w=1600&q=80"
           alt="전기 수리 전문가"
           fill
           className="object-cover"

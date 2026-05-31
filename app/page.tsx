@@ -5,7 +5,7 @@ import FadeIn from "@/components/FadeIn";
 const highlights = [
   {
     href: "/telecom",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80",
+    image: "https://images.unsplash.com/photo-1563884705074-7c8b15f16295?w=600&q=80",
     label: "통신의 역사",
     title: "자석식에서 스마트폰까지",
     desc: "대한민국 통신 34년의 현장을 걸어온 기록",

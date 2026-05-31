@@ -4,7 +4,7 @@ import FadeIn from "@/components/FadeIn";
 const photos = [
   { src: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80", alt: "고향 풍경", category: "고향" },
   { src: "https://images.unsplash.com/photo-1590935217281-8f102120d683?w=600&q=80", alt: "옛 교환기", category: "통신" },
-  { src: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80", alt: "전화기", category: "통신" },
+  { src: "https://images.unsplash.com/photo-1563884705074-7c8b15f16295?w=600&q=80", alt: "전화기", category: "통신" },
   { src: "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=600&q=80", alt: "따뜻한 빛", category: "가족" },
   { src: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=600&q=80", alt: "우주 성운", category: "우주" },
   { src: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=600&q=80", alt: "큰 나무", category: "가치관" },
