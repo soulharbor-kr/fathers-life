@@ -31,6 +31,7 @@ const miniTimeline = [
 
 const storyCases = [
   {
+    slug: "nujeom",
     emoji: "⚡",
     image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&q=80",
     title: "누전, 범인을 찾다",
@@ -38,6 +39,7 @@ const storyCases = [
     desc: "어디서 새는지 모르겠다던 누전, 배선 하나하나 추적해서 원인을 찾아드렸어요. \"이거 어떻게 아셨어요?\" 그게 20년 경력입니다.",
   },
   {
+    slug: "jaumun",
     emoji: "🚪",
     image: "https://images.unsplash.com/photo-1606676539940-12768ce0e762?w=600&q=80",
     title: "자동문이 멈췄어요",
@@ -45,6 +47,7 @@ const storyCases = [
     desc: "아침마다 수동으로 열어야 했던 공동현관 자동문. 부품 확인부터 조정까지, 당일 해결해드렸습니다.",
   },
   {
+    slug: "hwajangshil",
     emoji: "🚽",
     image: "https://images.unsplash.com/photo-1581166397057-235af2b3c6dd?w=600&q=80",
     title: "화장실이 말썽이에요",
@@ -52,13 +55,15 @@ const storyCases = [
     desc: "물이 새는 변기, 잠기지 않는 수전. 혼자 사시는 어머니 댁 화장실, 깔끔하게 교체해드렸습니다.",
   },
   {
+    slug: "garodeung",
     emoji: "💡",
     image: "https://images.unsplash.com/photo-1601462904263-f2fa0c851cb9?w=600&q=80",
     title: "가로등이 깜빡거려요",
     quote: "밤길이 밝아집니다",
-    desc: "아파트 단지 가로등 수리부터 각 세대 LED 교체까지. 밤길이 밝아지면 주민분들 표정도 밝아집니다.",
+    desc: "아파트 단지 가로등 수리부터 각 세대 LED 교체까지. 밝아지면 주민분들 표정도 밝아집니다.",
   },
   {
+    slug: "konsentu",
     emoji: "🔌",
     image: "https://images.unsplash.com/photo-1660330589693-99889d60181e?w=600&q=80",
     title: "콘센트에서 불꽃이 튀어요",
@@ -66,6 +71,7 @@ const storyCases = [
     desc: "노후된 콘센트·스위치 교체. 작은 불편이 큰 사고 되기 전에 빠르게 처리해드립니다.",
   },
   {
+    slug: "yeecho",
     emoji: "🌿",
     image: "https://images.unsplash.com/photo-1426927308491-6380b6a9936f?w=600&q=80",
     title: "풀이 무릎까지 자랐어요",
@@ -267,25 +273,30 @@ export default function RepairPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {storyCases.map((c) => (
               <FadeIn key={c.title}>
-                <div className="bg-white rounded-2xl overflow-hidden border border-black/5 hover:-translate-y-1 transition-transform duration-300">
-                  <div className="relative h-36 overflow-hidden">
-                    <Image
-                      src={c.image}
-                      alt={c.title}
-                      fill
-                      className="object-cover img-grayscale"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-navy/50 to-transparent" />
-                    <div className="absolute bottom-3 left-4 flex items-center gap-2">
-                      <span className="text-xl">{c.emoji}</span>
-                      <span className="font-serif text-sm text-white font-bold">{c.title}</span>
+                <Link href={`/repair/cases/${c.slug}`} className="group block">
+                  <div className="bg-white rounded-2xl overflow-hidden border border-black/5 hover:-translate-y-1 hover:shadow-md transition-all duration-300">
+                    <div className="relative h-36 overflow-hidden">
+                      <Image
+                        src={c.image}
+                        alt={c.title}
+                        fill
+                        className="object-cover img-grayscale group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-navy/50 to-transparent" />
+                      <div className="absolute bottom-3 left-4 flex items-center gap-2">
+                        <span className="text-xl">{c.emoji}</span>
+                        <span className="font-serif text-sm text-white font-bold">{c.title}</span>
+                      </div>
+                    </div>
+                    <div className="p-5 flex items-start justify-between gap-3">
+                      <div>
+                        <span className="text-xs text-amber font-medium">{c.quote}</span>
+                        <p className="text-sm text-text-light leading-relaxed mt-2">{c.desc}</p>
+                      </div>
+                      <span className="material-symbols-outlined text-base text-text-light group-hover:text-amber transition-colors flex-shrink-0 mt-0.5">arrow_forward</span>
                     </div>
                   </div>
-                  <div className="p-5">
-                    <span className="text-xs text-amber font-medium">{c.quote}</span>
-                    <p className="text-sm text-text-light leading-relaxed mt-2">{c.desc}</p>
-                  </div>
-                </div>
+                </Link>
               </FadeIn>
             ))}
           </div>
